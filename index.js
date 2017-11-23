@@ -3,6 +3,9 @@ var fs = require('fs');
 
  exports.get = function(event, context) {
    var contents = fs.readFileSync("public/index.html");
+   if (event=="test") {
+      contents = fs.readFileSync("public/robAlbumData.html");
+    }
    context.succeed({
      statusCode: 200,
      body: contents.toString(),
